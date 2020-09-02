@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="K-UA-Compatible" content="ie-edge">
+        <title>Registration</title>
+		<link rel="stylesheet" href="css/style.css"> 
+    <link rel="stylesheet" href="css/bootstrap.css"> 
+    
+    <style>
+      a {
+        text-decoration: none;
+      }
+    </style>
+    <script type="text/javascript">
+      function V() 
+      {
+        var n = "^[a-zA-Z]{3,15}$";
+        var p = "[a-zA-Z0-9@_$%]{6,}";
+        var number = "^[7-9][0-9]{9}$";
+        var email = "^[a-zA-Z0-9_.]+@[a-zA-Z]{2,}.[a-zA-Z]{2,3}$";
+        var reg=new RegExp(n);
+        
+        if (!reg.test(document.getElementById("fname").value)) 
+        {
+          alert("please enter valid first name")
+          return false;
+        }
+       
+        if (!reg.test(document.getElementById("lname").value)) {
+          alert("please enter valid Last name")
+          return false;
+        }
+        var reg=new RegExp(email);
+        if (!reg.test(document.getElementById("email").value)) {
+          alert("please enter valid Email Address")
+          return false;
+        }
+        
+        var reg=new RegExp(number);
+        if (!reg.test(document.getElementById("number").value)) {
+          alert("please enter valid mobile number")
+          return false;
+        }
+  
+        var reg=new RegExp(p);
+        if (!reg.test(document.getElementById("password").value)) {
+          alert("please enter at least six characters password")
+          return false;
+        }
+  
+      var password = document.getElementById("password").value;
+       var  cp = document.getElementById("cpassword").value;
+  
+         if (password != cp) {
+          
+          alert("please enter same password ")
+          return false;
+          }
+        
+        return ;
+      }
+  
+  
+    </script>
+  
+
+
+	</head>
+<body>
+    <div class="container-fluid regibox sticky-top">
+            Registration Form
+    </div>
+
+    <div class="container regi1box">
+    <form action="Get_response.php" onsubmit="return V()" method="GET">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" name="f_name" class="form-control" id="fname" required placeholder="first name">
+        </div>
+        <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" name="l_name" class="form-control" id="lname" required placeholder="Last name">
+          </div>
+          <div class="form-group">
+            <label>Enrolment Number</label>
+            <input type="number" name="e_number" class="form-control" id="exampleFormControlInput1" required placeholder="Ex: 170420107060">
+          </div>
+          <div class="form-group">
+            <label>Email-id</label>
+            <input type="text" name="email_id" class="form-control" id="email" required placeholder="Ex: abc@gmail.com">
+          </div>
+          <div class="form-group">
+            <label>Mobile Number</label>
+            <input type="number" name="m_number" class="form-control" id="number" required placeholder="10-digit Mobile Number">
+          </div>
+          <div class="form-group">
+            <label id="exampleFormControlSelect1">Select Branch</label>
+            <select class="form-control" name="s_branch" required id="exampleFormControlSelect1">
+              <option selected hidden value="">Select Branch</option>
+              <option value="Computer-M">Computer-M</option>
+              <option value="Computer-E">Computer-E</option>
+              <option value="IT">IT</option>
+              <option value="Electrical-M">Electrical-M</option>
+              <option value="Electrical-E">Electrical-E</option>
+              <option value="Civil">Civil</option>
+              <option value="EC">EC</option>
+              <option value="Text-tile">Text-tile</option>
+            </select>
+          </div>
+        <div class="form-group">
+          <label id="exampleFormControlSelect1">Select Year</label>
+          <select class="form-control" name="s_year" required id="exampleFormControlSelect1">
+            <option selected hidden value="">Select Year</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </div>
+        <div class="form-group">
+            <label>Create Password</label>
+            <input type="Password" name="s_password" required class="form-control" id="password">
+          </div>
+          <div class="form-group">
+            <label>Confirm Password</label>
+            <input type="Password" name="s_cpassword" required class="form-control" id="cpassword">
+          </div>
+     
+      <button class="btn btn-primary" type="submit">Submit Form</button>
+    </form>
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+
+    <script src="js/jquery.js"></script>
+	<script src="js/bootstrap.js"></script>
+</body>
+</html>
